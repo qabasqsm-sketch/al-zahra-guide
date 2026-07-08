@@ -34,6 +34,7 @@ function Contact({ language }) {
       },
     },
 
+
     {
       icon: <Mail size={28} />,
 
@@ -55,25 +56,56 @@ function Contact({ language }) {
       href: "mailto:finance@zcw.edu.om",
     },
 
+
     {
-      icon: <Phone size={28} />,
+      icon: <MessageCircle size={28} />,
 
       en: {
-        title: "Phone & WhatsApp",
-        subtitle: "Direct contact",
+        title: "WhatsApp",
+        subtitle: "WhatsApp Contact",
         description:
-          "Contact the Finance Department directly for assistance with tuition fees and payment procedures.",
+          "Contact the Finance Department through WhatsApp for assistance with tuition fees and payment procedures.",
       },
 
       ar: {
-        title: "الهاتف والواتساب",
-        subtitle: "تواصل مباشر",
+        title: "الواتساب",
+        subtitle: "تواصل عبر الواتساب",
         description:
-          "تواصلي مباشرة مع القسم المالي للحصول على المساعدة بشأن الرسوم الدراسية وإجراءات الدفع.",
+          "تواصلي مع القسم المالي عبر الواتساب للحصول على المساعدة بشأن الرسوم الدراسية وإجراءات الدفع.",
       },
 
       value: "24512838",
       href: "tel:24512838",
+    },
+
+
+    {
+      icon: <Phone size={28} />,
+
+      en: {
+        title: "Phone",
+        subtitle: "Direct Phone Contact",
+        description:
+          "Call the college directly for assistance and general inquiries.",
+      },
+
+      ar: {
+        title: "الهاتف",
+        subtitle: "تواصل هاتفي مباشر",
+        description:
+          "يمكنكِ الاتصال مباشرة للحصول على المساعدة والاستفسارات العامة.",
+      },
+
+      values: [
+        {
+          number: "24512848",
+          href: "tel:24512848",
+        },
+        {
+          number: "24512849",
+          href: "tel:24512849",
+        },
+      ],
     },
   ];
 
@@ -178,8 +210,8 @@ function Contact({ language }) {
             "
           >
             {isArabic
-              ? "نحن هنا لمساعدتكِ. تواصلي مع القسم المالي للاستفسارات المتعلقة بالرسوم الدراسية وطرق الدفع وتأكيد عملية السداد."
-              : "We are here to help. Contact the Finance Department for inquiries about tuition fees, payment methods, and payment confirmation."}
+              ? "نحن هنا لمساعدتكِ. تواصلي معنا للاستفسارات المتعلقة بالرسوم الدراسية وطرق الدفع وتأكيد عملية السداد."
+              : "We are here to help. Contact us for inquiries about tuition fees, payment methods, and payment confirmation."}
           </p>
 
         </div>
@@ -248,8 +280,8 @@ function Contact({ language }) {
               "
             >
               {isArabic
-                ? "اختاري وسيلة التواصل المناسبة للحصول على المساعدة أو إرسال استفساركِ إلى القسم المالي."
-                : "Choose the most convenient contact method to get assistance or send your inquiry to the Finance Department."}
+                ? "اختاري وسيلة التواصل المناسبة للحصول على المساعدة أو إرسال استفساركِ."
+                : "Choose the most convenient contact method to get assistance or send your inquiry."}
             </p>
 
           </div>
@@ -263,7 +295,7 @@ function Contact({ language }) {
               grid
               gap-7
               md:grid-cols-2
-              lg:grid-cols-3
+              lg:grid-cols-2
             "
           >
 
@@ -347,6 +379,8 @@ function Contact({ language }) {
                   </p>
 
 
+                  {/* SINGLE VALUE */}
+
                   {item.value && (
                     <div
                       className="
@@ -361,7 +395,9 @@ function Contact({ language }) {
                         href={item.href}
                         dir="ltr"
                         className="
+                          block
                           break-all
+                          text-center
                           font-black
                           text-[#990099]
                           transition
@@ -370,6 +406,44 @@ function Contact({ language }) {
                       >
                         {item.value}
                       </a>
+                    </div>
+                  )}
+
+
+                  {/* MULTIPLE PHONE NUMBERS */}
+
+                  {item.values && (
+                    <div
+                      className="
+                        mt-6
+                        grid
+                        gap-3
+                        sm:grid-cols-2
+                      "
+                    >
+                      {item.values.map((phone, phoneIndex) => (
+
+                        <a
+                          key={phoneIndex}
+                          href={phone.href}
+                          dir="ltr"
+                          className="
+                            rounded-2xl
+                            bg-fuchsia-50
+                            px-4
+                            py-4
+                            text-center
+                            font-black
+                            text-[#990099]
+                            transition
+                            hover:bg-fuchsia-100
+                            hover:text-[#760076]
+                          "
+                        >
+                          {phone.number}
+                        </a>
+
+                      ))}
                     </div>
                   )}
 
@@ -579,8 +653,8 @@ function Contact({ language }) {
                 "
               >
                 {isArabic
-                  ? "للاستفسارات المالية، يرجى استخدام البريد الإلكتروني أو رقم التواصل الموضحين في هذه الصفحة."
-                  : "For financial inquiries, please use the email address or contact number provided on this page."}
+                  ? "للاستفسارات المالية، يرجى استخدام البريد الإلكتروني أو الواتساب، وللاتصال الهاتفي استخدمي أرقام الهاتف الموضحة في هذه الصفحة."
+                  : "For financial inquiries, use the email or WhatsApp contact. For phone inquiries, use the telephone numbers shown on this page."}
               </p>
 
             </div>
